@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Event - 新西兰企业活动策划</title>
+    <meta name="description" content="We Event - 专业新西兰企业活动策划公司。为品牌和企业打造难忘的活动体验。">
+    <style>
+        :root {
+            --primary: #2D3436;
+            --accent: #E17055;
+            --light: #F8F9FA;
+            --white: #FFFFFF;
+            --gray: #636E72;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Microsoft YaHei';
+            line-height: 1.6;
+            color: var(--primary);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .lang-btn {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn:hover {
+            background: var(--accent);
+        }
+
+        .cta-btn {
+            background: var(--accent);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #d63031;
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 180px 0 120px;
+            background: linear-gradient(135deg, rgba(45,52,54,0.95) 0%, rgba(45,52,54,0.8) 100%),
+                        url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80') center/cover;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #d63031;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* About */
+        .about {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+        }
+
+        .about p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* Recent Work */
+        .work {
+            padding: 100px 0;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .work .section-header h2 {
+            color: var(--white);
+        }
+
+        .work .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .work-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .work-card:hover {
+            transform: scale(1.02);
+        }
+
+        .work-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .work-content {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+        }
+
+        .work-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .work-content p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Stats */
+        .stats {
+            padding: 80px 0;
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 100px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+        }
+
+        .contact p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .contact-item span {
+            font-size: 1.5rem;
+        }
+
+        .contact-form {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #DDD;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-col p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">We <span>Event</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#services">服务项目</a></li>
+                    <li><a href="#booth-rental">展位租赁</a></li>
+                    <li><a href="#work">精彩案例</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                    <li><a href="index.html" class="lang-btn">English</a></li>
+                </ul>
+                <a href="#contact" class="cta-btn">立即咨询</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>打造难忘的<br><span>企业活动</span></h1>
+            <p>我们与企业携手合作，创造令人难忘的连接时刻，打动人心，塑造受众的感受。</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn btn-primary">我们的服务</a>
+                <a href="#contact" class="btn btn-outline">联系我们</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2>新西兰专业活动策划</h2>
+                    <p>凭借多年的活动行业经验，我们专注于打造超越期望的企业活动体验。</p>
+                    <p>从会议和产品发布会到团队庆祝活动和行政高管休养，我们处理每一个细节，让您专注于最重要的事情——您的业务。</p>
+                    <p>总部位于奥克兰，我们为新西兰及国际客户提供服务。</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80" alt="企业活动" class="about-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>我们的服务</h2>
+                <p>为您的企业需求量身定制的全方位活动解决方案</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>企业会议</h3>
+                    <p>从场地选择到现场管理的专业会议策划，确保您的活动顺利进行。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>产品发布会</h3>
+                    <p>打造令人印象深刻的产品发布会，产生话题热度并吸引目标受众。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3>团队庆祝活动</h3>
+                    <p>表彰成就，凝聚团队精神，您的员工会喜爱的庆祝活动。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>高管休养</h3>
+                    <p>在充满灵感的目的地举办战略规划会议，促进创意和协作。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>社交活动</h3>
+                    <p>为您团队和客户打造专业组织的社交活动。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎪</div>
+                    <h3>混合活动</h3>
+                    <p>结合线下和线上元素，最大化参与度和互动性。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <h3>展位与展台租赁</h3>
+                    <p>为您的活动提供优质的展览展位和展台，含全套搭建和拆卸服务。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booth-rental" class="services" style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>展位与展台租赁</h2>
+                <p>为展览会和活动提供优质的展示解决方案</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>标准展位</h3>
+                    <p>适用于展览会和贸易展会</p>
+                    <ul style="list-style: none; color: var(--gray); margin-top: 15px;">
+                        <li>• 3x3米或3x6米可选</li>
+                        <li>• 定制品牌标识</li>
+                        <li>• 含家具配套</li>
+                        <li>• 含搭建和拆卸</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: var(--accent); font-weight: 600;">起价 $899</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>高端展位</h3>
+                    <p>从人群中脱颖而出的高端设计</p>
+                    <ul style="list-style: none; color: var(--gray); margin-top: 15px;">
+                        <li>• 定制设计结构</li>
+                        <li>• 双层可选</li>
+                        <li>• 含灯光和AV设备</li>
+                        <li>• 全程项目管理</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: var(--accent); font-weight: 600;">起价 $2,499</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>展位配件</h3>
+                    <p>完善您的展台所需的一切</p>
+                    <ul style="list-style: none; color: var(--gray); margin-top: 15px;">
+                        <li>• 展示柜台</li>
+                        <li>• 宣传册架</li>
+                        <li>• LED灯套件</li>
+                        <li>• 地面图案</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: var(--accent); font-weight: 600;">起价 $99</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#contact" class="cta-btn" style="padding: 15px 40px; font-size: 1.1rem;">获取免费报价</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="work">
+        <div class="container">
+            <div class="section-header">
+                <h2>精彩案例</h2>
+                <p>我们成功举办的活动示例</p>
+            </div>
+            <div class="work-grid">
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&q=80" alt="年度大会" class="work-img">
+                    <div class="work-content">
+                        <h3>年度企业大会</h3>
+                        <p>为期3天的大会，汇聚了来自新西兰各地的500多位参会者。</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80" alt="产品发布会" class="work-img">
+                    <div class="work-content">
+                        <h3>科技产品发布会</h3>
+                        <p>面向媒体和VIP客户的高影响力产品发布活动。</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&q=80" alt="颁奖晚宴" class="work-img">
+                    <div class="work-content">
+                        <h3>年度颁奖晚宴</h3>
+                        <p>400多位行业嘉宾参加的典雅正式晚宴，表彰卓越成就。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>活动举办</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>企业客户</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>年经验</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>客户满意度</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h2>与我们一起创造精彩</h2>
+                    <p>准备好策划您的下一个企业活动了吗？联系我们，讨论如何将您的愿景变为现实。</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <div>
+                                <strong>地址</strong><br>
+                                奥克兰，新西兰
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <div>
+                                <strong>电话</strong><br>
+                                +64 XXX XXXX
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span>✉️</span>
+                            <div>
+                                <strong>邮箱</strong><br>
+                                hello@weevent.co.nz
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label>您的姓名</label>
+                            <input type="text" placeholder="请输入您的姓名">
+                        </div>
+                        <div class="form-group">
+                            <label>电子邮箱</label>
+                            <input type="email" placeholder="请输入您的邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label>活动类型</label>
+                            <input type="text" placeholder="您想举办什么类型的活动？">
+                        </div>
+                        <div class="form-group">
+                            <label>留言</label>
+                            <textarea placeholder="请告诉我们您的活动详情..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">发送消息</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>We Event</h4>
+                    <p>新西兰专业企业活动策划公司。为品牌和企业打造难忘的活动体验。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <a href="#about">关于我们</a>
+                    <a href="#services">服务项目</a>
+                    <a href="#work">精彩案例</a>
+                    <a href="#contact">联系我们</a>
+                </div>
+                <div class="footer-col">
+                    <h4>服务项目</h4>
+                    <a href="#">企业会议</a>
+                    <a href="#">产品发布</a>
+                    <a href="#">团队活动</a>
+                    <a href="#">高管休养</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 We Event. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
